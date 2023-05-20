@@ -43,5 +43,27 @@ function playRound(playerSelection, computerSelection) {
         console.log("Computer wins this round - paper beats rock");
 }   else {
         computerScore += 1;
-        console.log("Computer wins this round - scissors beat paper")
+        console.log("Computer wins this round - scissors beat paper");
 }}
+
+function reportWinner(playerScore, computerScore) {
+    if (playerScore > computerScore) {
+        console.warn("Player wins the game with " + playerScore + " points.");
+    }   else if (computerScore > playerScore) {
+        console.warn("Computer Wins the game with " + computerScore + " points." );
+    }   else {
+        console.warn("You both have same score. No one wins!");
+    }
+}
+
+function game() {
+    for (let i = 0; i <= 4; i++) {
+        getPlayerChoice();
+        getComputerChoice();
+        playRound(playerSelection, computerSelection);
+        console.log("Player - " + playerScore + " | " + "Computer - " + computerScore );
+    }
+    reportWinner(playerScore, computerScore);
+}
+
+game()
