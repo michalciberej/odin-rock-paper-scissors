@@ -1,0 +1,43 @@
+html {
+    font-family: Roboto, sans-serif;
+}
+
+.body {
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+}
+
+.imgContainer {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.textContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+img {
+    border: 3px solid grey;
+    border-radius: 10px;
+    padding: 9px;;
+    transition: transform 0.2s;
+}
+
+img:hover  {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
