@@ -14,7 +14,7 @@ let playAgainButton = document.querySelector("#playAgain");
 rockButton.addEventListener("click", () => btnClick("ROCK"));
 paperButton.addEventListener("click", () => btnClick("PAPER"));
 scissorsButton.addEventListener("click", () => btnClick("SCISSORS"));
-playAgainButton.addEventListener("click", () => restartGame(playerScore, computerScore));
+playAgainButton.addEventListener("click", () => restartGame());
 
 function computerSelection() {
   computerChoice = Math.round((Math.random() + 1) * 10) / 10;
@@ -63,24 +63,24 @@ function gameOver(playerScore, computerScore) {
   if (isGameOver())
     if (playerScore > computerScore) {
       winnerText.textContent = "Player wins!"
-    } else {
+    } else if (computerScore > playerScore) {
       winnerText.textContent = "Computer wins!"
   }
   return
 }
 
-function restartGame(playerScore, computerScore) {
+function restartGame() {
   playerScore = 0;
   computerScore = 0;
-  playerScoreText.textValue = playerScore;
-  computerScoreText.textValue = computerScore;
+  playerScoreText.textContent = playerScore;
+  computerScoreText.textContent = computerScore;
+  winnerText.textContent = "";
   playAgainButton.classList.toggle("hide");
 }
 
-
 function btnClick(playerChoice) {
   if (isGameOver()) {
-    gameOver();
+    gameOver(playerScore,computerScore);
     playAgainButton.classList.toggle("hide");
     return
   }
@@ -90,90 +90,8 @@ function btnClick(playerChoice) {
   updateScore(playerScore, computerScore);
 
   if (isGameOver()) {
-    gameOver();
+    gameOver(playerScore,computerScore);
     playAgainButton.classList.toggle("hide");
     return
   }
 }
-
-
-
-// function deActivateButtons() {
-//   rockButton.removeEventListener("mousedown", () => {
-//     computerSelection();
-//     playerChoice = "rock";
-//     compareChoices(playerChoice, computerChoice);
-//     playerScoreText.textContent = playerScore;
-//     computerScoreText.textContent = computerScore;
-//     restartGame();
-//   })
-//   paperButton.removeEventListener("mousedown", () => {
-//     computerSelection();
-//     playerChoice = "rock";
-//     compareChoices(playerChoice, computerChoice);
-//     playerScoreText.textContent = playerScore;
-//     computerScoreText.textContent = computerScore;
-//     restartGame();
-//   })
-//   scissorsButton.removeEventListener("mousedown", () => {
-//     computerSelection();
-//     playerChoice = "rock";
-//     compareChoices(playerChoice, computerChoice);
-//     playerScoreText.textContent = playerScore;
-//     computerScoreText.textContent = computerScore;
-//     restartGame();
-//   })
-// }
-
-// function toggleText() {
-//   playerText.classList.toggle("hide");
-//   computerText.classList.toggle("hide");
-// }
-
-// function redBorder() {
-//   rockButton.classList.add(".redBorder");
-//   paperButton.classList.add(".redBorder");
-//   scissorsButton.classList.add(".redBorder");
-// }
-
-// function restartGame(playerScore, computerScore) {
-//   if (playerScore === 5 || computerScore === 5) {
-//     deActivateButtons();
-//     redBorder();
-//     toggleText();
-//   } else {
-
-//   }
-// }
-
-
-
-// // BUTTONS
-
-// rockButton.addEventListener("mousedown", () => {
-//   computerSelection();
-//   playerChoice = "rock";
-//   compareChoices(playerChoice, computerChoice);
-//   playerScoreText.textContent = playerScore;
-//   computerScoreText.textContent = computerScore;
-//   restartGame();
-// })
-
-// paperButton.addEventListener("mousedown", () => {
-//   computerSelection();
-//   playerChoice = "paper";
-//   compareChoices(playerChoice, computerChoice);
-//   playerScoreText.textContent = playerScore;
-//   computerScoreText.textContent = computerScore;
-//   restartGame()
-// })
-
-// scissorsButton.addEventListener("mousedown", () => {
-//   computerSelection();
-//   playerChoice = "scissors";
-//   compareChoices(playerChoice, computerChoice);
-//   playerScoreText.textContent = playerScore;
-//   computerScoreText.textContent = computerScore;
-//   restartGame()
-// })
-

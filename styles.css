@@ -25,7 +25,7 @@ body {
     display: flex;
     gap: 35px;
     justify-content: center;
-    margin: 50px 0 15px 0;
+    margin: 30px 0 15px 0;
 }
 
 .textContainer {
@@ -34,6 +34,10 @@ body {
     align-items: center;
     gap: 40px;
     font-size: 0.9em;
+}
+
+h1 {
+  margin: 30px 0 0 0;
 }
 
 button {
@@ -47,12 +51,17 @@ button {
 #playAgain {
     font-size: 18px;
     color: white;
-    margin: 15px;
+    margin: 5px;
+    border: 3px solid #FBC02D;
 }
 
 button:hover  {
     background: #808080;
     cursor: pointer;
+}
+
+#winnerText {
+  margin: 12px 0 25px;
 }
 
 .hide {
